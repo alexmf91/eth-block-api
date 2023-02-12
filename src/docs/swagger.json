@@ -1,0 +1,54 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Ethereum block API",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "Block Number"
+    }
+  ],
+  "paths": {
+    "/api/v1/block-number/{timestamp}": {
+      "get": {
+        "tags": ["Block Number"],
+        "summary": "Get the closest block number",
+        "description": "Returns the closest block number of the blockchain after the timestamp provided",
+        "parameters": [
+          {
+            "name": "timestamp",
+            "in": "path",
+            "description": "Timestamp in seconds to query the closest block number",
+            "required": true,
+            "example": 1676140232,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "blockNumber": {
+                  "type": "integer",
+                  "format": "int64",
+                  "example": 16607310
+                },
+                "blockTimestamp": {
+                  "type": "integer",
+                  "format": "int64",
+                  "example": 1609460000
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
